@@ -28,4 +28,4 @@ export type ServiceProps<TContext, TSchema, TEvent extends EventObject> = {
 
 export const Service = <TContext, TSchema, TEvent extends EventObject>({ service }: ServiceProps<TContext, TSchema, TEvent>, children?: Element[]) => <xstate-service service={service}>{...children}</xstate-service>
 
-export type MachineRenderer<TContext, TSchema, TEvent extends EventObject> = (current: State<TContext>, send: Interpreter<TContext, TSchema, TEvent>['send'], service: Interpreter<TContext, TSchema, TEvent>) => Element[] | Element | undefined | null;
+export type MachineRenderer<TContext, TSchema, TEvent extends EventObject> = (current: State<TContext>, send: Interpreter<TContext, TSchema, TEvent>['send'], service: Interpreter<TContext, TSchema, TEvent>) => JSX.Element[] | JSX.Element;
