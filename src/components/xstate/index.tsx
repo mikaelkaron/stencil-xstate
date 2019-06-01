@@ -17,9 +17,14 @@ export interface MachineOptions extends Partial<InterpreterOptions> {
   immediate?: boolean;
 }
 
-export type MachineProps<TContext, TSchema, TEvent extends EventObject> = {
+export type RendererProps<TContext, TSchema, TEvent extends EventObject> = {
   machine: StateMachine<TContext, TSchema, TEvent>;
   options?: MachineOptions;
+};
+
+export const Renderer = <TContext, TSchema, TEvent extends EventObject>({ machine, options }: RendererProps<TContext, TSchema, TEvent>, children?: Element[]) => <xstate-renderer machine={machine} options={options}>{...children}</xstate-renderer>
+
+export type MachineProps<TContext, TSchema, TEvent extends EventObject> = RendererProps<TContext, TSchema, TEvent> & {
   renderer?: MachineRenderer<TContext, TSchema, TEvent>;
 };
 

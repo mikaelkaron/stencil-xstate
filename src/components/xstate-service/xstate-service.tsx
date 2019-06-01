@@ -24,7 +24,7 @@ export class XStateService {
   /**
    * Renderer callback
    */
-  @Prop() renderer: MachineRenderer<any, any, any>;
+  @Prop() renderer?: MachineRenderer<any, any, any>;
 
   private stateChange(state: MachineState<any, any>) {
     if (state.changed) {
