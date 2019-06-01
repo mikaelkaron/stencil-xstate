@@ -32,7 +32,7 @@ export namespace Components {
     /**
     * Render callback
     */
-    'renderer': MachineRenderer<any, any>;
+    'renderer': MachineRenderer<any, any, any>;
   }
   interface XstateMachineAttributes extends StencilHTMLAttributes {
     /**
@@ -46,14 +46,14 @@ export namespace Components {
     /**
     * Render callback
     */
-    'renderer'?: MachineRenderer<any, any>;
+    'renderer'?: MachineRenderer<any, any, any>;
   }
 
   interface XstateService {
     /**
     * Renderer callback
     */
-    'renderer': MachineRenderer<any, any>;
+    'renderer': MachineRenderer<any, any, any>;
     /**
     * An XState service.
     */
@@ -63,7 +63,7 @@ export namespace Components {
     /**
     * Renderer callback
     */
-    'renderer'?: MachineRenderer<any, any>;
+    'renderer'?: MachineRenderer<any, any, any>;
     /**
     * An XState service.
     */
