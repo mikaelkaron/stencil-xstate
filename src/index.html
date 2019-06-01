@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+  <title>XState tools for Stencil</title>
+  <script src="/build/xstate.js"></script>
+</head>
+<body>
+
+  <script src="https://cdn.jsdelivr.net/npm/xstate@4.6.0/dist/xstate.js"></script>
+  <xstate-machine />
+  <script>
+    const { XState: { Machine } } = window;
+    const element = document.querySelector('xstate-machine');
+
+    const machine = Machine({
+      id: 'toggle',
+      initial: 'inactive',
+      states: {
+        inactive: {
+          on: { TOGGLE: 'active' }
+        },
+        active: {
+          on: { TOGGLE: 'inactive' }
+        }
+      }
+    });
+
+    element.machine = machine;
+    element.renderer = (current, send) => {
+      return {
+        'vtag': 'button',
+        'vattrs': {
+          onClick: () => send('TOGGLE')
+        },
+        'vchildren': [
+          {
+            'vtext': current.value === 'inactive'
+              ? 'Click to activate'
+              : 'Active! Click to deactivate'
+          }
+        ]
+      };
+    }
+    </script>
+</body>
+</html>
