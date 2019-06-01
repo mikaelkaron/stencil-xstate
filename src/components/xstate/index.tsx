@@ -9,6 +9,10 @@ import {
 
 export { State as MachineState } from 'xstate'
 
+export type Send<TContext, TSchema, TEvent extends EventObject> = Interpreter<TContext, TSchema, TEvent>['send'];
+
+export type MachineRenderer<TContext, TSchema, TEvent extends EventObject> = (current: State<TContext>, send: Send<TContext, TSchema, TEvent>, service: Interpreter<TContext, TSchema, TEvent>) => JSX.Element[] | JSX.Element;
+
 export interface MachineOptions extends Partial<InterpreterOptions> {
   immediate?: boolean;
 }
@@ -27,5 +31,3 @@ export type ServiceProps<TContext, TSchema, TEvent extends EventObject> = {
 };
 
 export const Service = <TContext, TSchema, TEvent extends EventObject>({ service }: ServiceProps<TContext, TSchema, TEvent>, children?: Element[]) => <xstate-service service={service}>{...children}</xstate-service>
-
-export type MachineRenderer<TContext, TSchema, TEvent extends EventObject> = (current: State<TContext>, send: Interpreter<TContext, TSchema, TEvent>['send'], service: Interpreter<TContext, TSchema, TEvent>) => JSX.Element[] | JSX.Element;
