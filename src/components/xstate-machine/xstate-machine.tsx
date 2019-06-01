@@ -34,7 +34,7 @@ export class XStateMachine {
   /**
    * Render callback
    */
-  @Prop() renderer: MachineRenderer<any, any>;
+  @Prop() renderer: MachineRenderer<any, any, any>;
 
   componentWillLoad() {
     const { machine, options } = this;
