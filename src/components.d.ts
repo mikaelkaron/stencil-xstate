@@ -49,27 +49,6 @@ export namespace Components {
     'renderer'?: MachineRenderer<any, any, any>;
   }
 
-  interface XstateRenderer {
-    /**
-    * An XState machine
-    */
-    'machine': StateMachine<any, any, any>;
-    /**
-    * Interpreter options that you can pass in
-    */
-    'options'?: MachineOptions;
-  }
-  interface XstateRendererAttributes extends StencilHTMLAttributes {
-    /**
-    * An XState machine
-    */
-    'machine': StateMachine<any, any, any>;
-    /**
-    * Interpreter options that you can pass in
-    */
-    'options'?: MachineOptions;
-  }
-
   interface XstateService {
     /**
     * Renderer callback
@@ -95,13 +74,11 @@ export namespace Components {
 declare global {
   interface StencilElementInterfaces {
     'XstateMachine': Components.XstateMachine;
-    'XstateRenderer': Components.XstateRenderer;
     'XstateService': Components.XstateService;
   }
 
   interface StencilIntrinsicElements {
     'xstate-machine': Components.XstateMachineAttributes;
-    'xstate-renderer': Components.XstateRendererAttributes;
     'xstate-service': Components.XstateServiceAttributes;
   }
 
@@ -112,12 +89,6 @@ declare global {
     new (): HTMLXstateMachineElement;
   };
 
-  interface HTMLXstateRendererElement extends Components.XstateRenderer, HTMLStencilElement {}
-  var HTMLXstateRendererElement: {
-    prototype: HTMLXstateRendererElement;
-    new (): HTMLXstateRendererElement;
-  };
-
   interface HTMLXstateServiceElement extends Components.XstateService, HTMLStencilElement {}
   var HTMLXstateServiceElement: {
     prototype: HTMLXstateServiceElement;
@@ -126,13 +97,11 @@ declare global {
 
   interface HTMLElementTagNameMap {
     'xstate-machine': HTMLXstateMachineElement
-    'xstate-renderer': HTMLXstateRendererElement
     'xstate-service': HTMLXstateServiceElement
   }
 
   interface ElementTagNameMap {
     'xstate-machine': HTMLXstateMachineElement;
-    'xstate-renderer': HTMLXstateRendererElement;
     'xstate-service': HTMLXstateServiceElement;
   }
 
