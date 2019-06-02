@@ -1,7 +1,8 @@
 import { Component, Prop, State } from '@stencil/core';
-import { MachineState, MachineRenderer } from '../xstate'
+import { Renderer } from '../xstate'
 
 import {
+  State as MachineState,
   Interpreter
 } from 'xstate';
 
@@ -24,7 +25,7 @@ export class XStateService {
   /**
    * Renderer callback
    */
-  @Prop() renderer?: MachineRenderer<any, any, any>;
+  @Prop() renderer?: Renderer<any, any, any>;
 
   private stateChange(state: MachineState<any, any>) {
     if (state.changed) {

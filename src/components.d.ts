@@ -13,8 +13,8 @@ import {
   StateMachine,
 } from 'xstate';
 import {
-  MachineOptions,
-  MachineRenderer,
+  Options,
+  Renderer,
 } from './components/xstate';
 
 
@@ -28,11 +28,11 @@ export namespace Components {
     /**
     * Interpreter options that you can pass in
     */
-    'options'?: MachineOptions;
+    'options'?: Options;
     /**
     * Render callback
     */
-    'renderer': MachineRenderer<any, any, any>;
+    'renderer': Renderer<any, any, any>;
   }
   interface XstateMachineAttributes extends StencilHTMLAttributes {
     /**
@@ -42,18 +42,18 @@ export namespace Components {
     /**
     * Interpreter options that you can pass in
     */
-    'options'?: MachineOptions;
+    'options'?: Options;
     /**
     * Render callback
     */
-    'renderer'?: MachineRenderer<any, any, any>;
+    'renderer'?: Renderer<any, any, any>;
   }
 
   interface XstateService {
     /**
     * Renderer callback
     */
-    'renderer'?: MachineRenderer<any, any, any>;
+    'renderer'?: Renderer<any, any, any>;
     /**
     * An XState service.
     */
@@ -63,7 +63,7 @@ export namespace Components {
     /**
     * Renderer callback
     */
-    'renderer'?: MachineRenderer<any, any, any>;
+    'renderer'?: Renderer<any, any, any>;
     /**
     * An XState service.
     */

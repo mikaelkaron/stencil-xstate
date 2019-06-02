@@ -1,7 +1,8 @@
 import { Component, Prop, State } from '@stencil/core';
-import { MachineOptions, MachineState, MachineRenderer } from '../xstate'
+import { Options, Renderer } from '../xstate'
 import {
   interpret,
+  State as MachineState,
   StateMachine,
   Interpreter
 } from 'xstate';
@@ -27,14 +28,14 @@ export class XStateMachine {
   /**
    * Interpreter options that you can pass in
    */
-  @Prop() options?: MachineOptions = {
+  @Prop() options?: Options = {
     immediate: false
   };
 
   /**
    * Render callback
    */
-  @Prop() renderer: MachineRenderer<any, any, any>;
+  @Prop() renderer: Renderer<any, any, any>;
 
   componentWillLoad() {
     const { machine, options } = this;
