@@ -27,7 +27,7 @@ export class XStateService {
    */
   @Prop() renderer?: Renderer<any, any, any>;
 
-  private stateChange(state: MachineState<any, any>) {
+  private stateChange = (state: MachineState<any, any>) => {
     if (state.changed) {
       this.current = state
     }
