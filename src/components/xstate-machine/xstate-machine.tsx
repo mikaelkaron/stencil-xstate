@@ -13,17 +13,15 @@ import {
 })
 export class XStateMachine {
 
-  @State() service: Interpreter<any, any, any>;
-
-  /**
-   * Current machine state
-   */
-  @State() current: MachineState<any, any>;
-
   /**
    * An XState machine
    */
   @Prop() machine!: StateMachine<any, any, any>;
+
+  /**
+   * Current XState machine service
+   */
+  @Prop() service: Interpreter<any, any, any>;
 
   /**
    * Interpreter options that you can pass in
@@ -37,25 +35,29 @@ export class XStateMachine {
    */
   @Prop() renderer: Renderer<any, any, any>;
 
+  /**
+   * Current machine state
+   */
+  @State() current: MachineState<any, any>;
+
   componentWillLoad() {
     const { machine, options } = this;
 
-    const service = interpret(machine, options).onTransition(state => {
+    // Keep track of the service 
+    this.service = interpret(machine, options).onTransition(state => {
       // Update the current machine state when a transition occurs
       if (state.changed) {
         this.current = state;
       }
     });
 
-    this.service = service;
-
     // Start service immediately (before mount) if specified in options
     if (options && options.immediate) {
-      service.start();
+      this.service.start();
     }
 
     // Keep track of the current machine state
-    this.current = service.initialState;
+    this.current = this.service.initialState;
   }
 
   componentDidLoad() {
