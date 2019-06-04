@@ -21,7 +21,7 @@ export class XStateMachine {
   /**
    * Current XState machine service
    */
-  @Prop() service: Interpreter<any, any, any>;
+  @Prop({ mutable: true }) service: Interpreter<any, any, any>;
 
   /**
    * Interpreter options that you can pass in
