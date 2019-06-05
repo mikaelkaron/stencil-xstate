@@ -46,6 +46,6 @@ export class XStateService {
   }
 
   render() {
-    return this.renderer && this.renderer(this.current, this.service.send, this.service);
+    return [<slot name='start' />, this.renderer && this.renderer(this.current, this.service.send, this.service), <slot />, <slot name='end' />];
   }
 }

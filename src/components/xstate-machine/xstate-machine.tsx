@@ -1,4 +1,4 @@
-import { Component, Prop, State } from '@stencil/core';
+import { Component, Prop, State, ComponentInterface } from '@stencil/core';
 import { Options, Renderer } from '../xstate'
 import {
   interpret,
@@ -11,7 +11,7 @@ import {
   tag: 'xstate-machine',
   shadow: true
 })
-export class XStateMachine {
+export class XStateMachine implements ComponentInterface {
 
   /**
    * An XState machine
@@ -72,6 +72,6 @@ export class XStateMachine {
   }
 
   render() {
-    return this.renderer && this.renderer(this.current, this.service.send, this.service);
+    return [<slot name='start' />, this.renderer && this.renderer(this.current, this.service.send, this.service), <slot />, <slot name='end' />];
   }
 }
