@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.6.0](https://github.com/mikaelkaron/stencil-xstate/compare/v0.5.1...v0.6.0) (2019-06-05)
+
+
+### Bug Fixes
+
+* stateChange should not be static ([58db7d1](https://github.com/mikaelkaron/stencil-xstate/commit/58db7d1))
+* update lockfile ([26982ae](https://github.com/mikaelkaron/stencil-xstate/commit/26982ae))
+
+
+### Features
+
+* add <slot> support ([d0e61d7](https://github.com/mikaelkaron/stencil-xstate/commit/d0e61d7))
+
+
+
 ### [0.5.1](https://github.com/mikaelkaron/stencil-xstate/compare/v0.5.0...v0.5.1) (2019-06-04)
 
 
