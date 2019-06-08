@@ -7,6 +7,11 @@
     "url": "https://mikael.karon.se"
   },
   "description": "XState tools for Stencil",
+  "homepage": "https://github.com/mikaelkaron/stencil-xstate/tree/master/packages/stencil-xstate",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mikaelkaron/stencil-xstate.git"
+  },
   "module": "dist/esm/index.js",
   "main": "dist/index.js",
   "unpkg": "dist/ionic.js",
