@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.6.3](https://github.com/mikaelkaron/stencil-xstate/compare/v0.6.2...v0.6.3) (2019-06-08)
+
+
+### Bug Fixes
+
+* disable shadow dom ([fde9f55](https://github.com/mikaelkaron/stencil-xstate/commit/fde9f55))
+
+
+
 ### [0.6.2](https://github.com/mikaelkaron/stencil-xstate/compare/v0.6.1...v0.6.2) (2019-06-08)
 
 
