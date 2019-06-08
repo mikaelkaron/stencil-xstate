@@ -1,17 +1,12 @@
 import { Component, Prop, State } from '@stencil/core';
-import { Renderer } from '../xstate'
-
-import {
-  State as MachineState,
-  Interpreter
-} from 'xstate';
+import { State as MachineState, Interpreter } from 'xstate';
+import { Renderer } from '../xstate';
 
 @Component({
   tag: 'xstate-service',
-  shadow: true
+  shadow: false
 })
 export class XStateService {
-
   /**
    * Current machine state
    */
@@ -29,9 +24,9 @@ export class XStateService {
 
   private stateChange = (state: MachineState<any, any>) => {
     if (state.changed) {
-      this.current = state
+      this.current = state;
     }
-  }
+  };
 
   componentWillLoad() {
     this.current = this.service.state;
@@ -46,6 +41,9 @@ export class XStateService {
   }
 
   render() {
-    return this.renderer && this.renderer(this.current, this.service.send, this.service);
+    return (
+      this.renderer &&
+      this.renderer(this.current, this.service.send, this.service)
+    );
   }
 }

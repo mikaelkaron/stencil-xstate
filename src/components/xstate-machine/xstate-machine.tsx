@@ -1,18 +1,17 @@
 import { Component, Prop, State, ComponentInterface } from '@stencil/core';
-import { Options, Renderer } from '../xstate'
 import {
   interpret,
   State as MachineState,
   StateMachine,
   Interpreter
 } from 'xstate';
+import { Options, Renderer } from '../xstate';
 
 @Component({
   tag: 'xstate-machine',
-  shadow: true
+  shadow: false
 })
 export class XStateMachine implements ComponentInterface {
-
   /**
    * An XState machine
    */
@@ -43,7 +42,7 @@ export class XStateMachine implements ComponentInterface {
   componentWillLoad() {
     const { machine, options } = this;
 
-    // Keep track of the service 
+    // Keep track of the service
     this.service = interpret(machine, options).onTransition(state => {
       // Update the current machine state when a transition occurs
       if (state.changed) {
@@ -72,6 +71,9 @@ export class XStateMachine implements ComponentInterface {
   }
 
   render() {
-    return this.renderer && this.renderer(this.current, this.service.send, this.service);
+    return (
+      this.renderer &&
+      this.renderer(this.current, this.service.send, this.service)
+    );
   }
 }
