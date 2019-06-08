@@ -72,6 +72,6 @@ export class XStateMachine implements ComponentInterface {
   }
 
   render() {
-    return [this.renderer && this.renderer(this.current, this.service.send, this.service), <slot />];
+    return this.renderer && this.renderer(this.current, this.service.send, this.service);
   }
 }
