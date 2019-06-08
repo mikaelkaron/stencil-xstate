@@ -1,0 +1,38 @@
+{
+  "name": "stencil-xstate",
+  "version": "0.6.3",
+  "author": {
+    "name": "Mikael Karon",
+    "email": "mikael@karon.se",
+    "url": "https://mikael.karon.se"
+  },
+  "description": "XState tools for Stencil",
+  "module": "dist/esm/index.js",
+  "main": "dist/index.js",
+  "unpkg": "dist/ionic.js",
+  "types": "dist/types/components.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "stencil build --docs",
+    "start": "stencil build --dev --watch --serve",
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watchAll",
+    "release": "standard-version"
+  },
+  "devDependencies": {
+    "@stencil/core": "0.18.1",
+    "standard-version": "^6.0.1"
+  },
+  "standard-version": {
+    "scripts": {
+      "prerelease": "npm run build"
+    }
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "xstate": "^4.6.0"
+  }
+}
