@@ -10,9 +10,9 @@
     "test.watch": "stencil test --spec --e2e --watchAll"
   },
   "dependencies": {
-    "@stencil/core": "^0.18.1",
-    "stencil-xstate": "^0.6.3",
-    "xstate": "^4.6.0"
+    "@stencil/core": "0.18.0",
+    "stencil-xstate": "file:../stencil-xstate",
+    "xstate": "^4.6.1"
   },
   "license": "MIT"
 }
