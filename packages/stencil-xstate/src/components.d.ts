@@ -9,6 +9,7 @@ import '@stencil/core';
 
 
 import {
+  EventObject,
   Interpreter,
   StateMachine,
 } from 'xstate';
@@ -24,7 +25,7 @@ export namespace Components {
     /**
     * An XState machine
     */
-    'machine': StateMachine<any, any, any>;
+    'machine': StateMachine<any, any, EventObject>;
     /**
     * Interpreter options that you can pass in
     */
@@ -32,17 +33,17 @@ export namespace Components {
     /**
     * Render callback
     */
-    'renderer': Renderer<any, any, any>;
+    'renderer': Renderer<any>;
     /**
     * Current XState machine service
     */
-    'service': Interpreter<any, any, any>;
+    'service': Interpreter<any>;
   }
   interface XstateMachineAttributes extends StencilHTMLAttributes {
     /**
     * An XState machine
     */
-    'machine': StateMachine<any, any, any>;
+    'machine': StateMachine<any, any, EventObject>;
     /**
     * Interpreter options that you can pass in
     */
@@ -50,32 +51,32 @@ export namespace Components {
     /**
     * Render callback
     */
-    'renderer'?: Renderer<any, any, any>;
+    'renderer'?: Renderer<any>;
     /**
     * Current XState machine service
     */
-    'service'?: Interpreter<any, any, any>;
+    'service'?: Interpreter<any>;
   }
 
   interface XstateService {
     /**
     * Renderer callback
     */
-    'renderer'?: Renderer<any, any, any>;
+    'renderer'?: Renderer<any>;
     /**
     * An XState service.
     */
-    'service': Interpreter<any, any, any>;
+    'service': Interpreter<any>;
   }
   interface XstateServiceAttributes extends StencilHTMLAttributes {
     /**
     * Renderer callback
     */
-    'renderer'?: Renderer<any, any, any>;
+    'renderer'?: Renderer<any>;
     /**
     * An XState service.
     */
-    'service': Interpreter<any, any, any>;
+    'service': Interpreter<any>;
   }
 }
 

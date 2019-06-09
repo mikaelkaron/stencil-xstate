@@ -3,7 +3,8 @@ import {
   interpret,
   State as MachineState,
   StateMachine,
-  Interpreter
+  Interpreter,
+  EventObject
 } from 'xstate';
 import { Options, Renderer } from '../xstate';
 
@@ -15,12 +16,12 @@ export class XStateMachine implements ComponentInterface {
   /**
    * An XState machine
    */
-  @Prop() machine!: StateMachine<any, any, any>;
+  @Prop() machine!: StateMachine<any, any, EventObject>;
 
   /**
    * Current XState machine service
    */
-  @Prop({ mutable: true }) service: Interpreter<any, any, any>;
+  @Prop({ mutable: true }) service: Interpreter<any>;
 
   /**
    * Interpreter options that you can pass in
@@ -32,12 +33,12 @@ export class XStateMachine implements ComponentInterface {
   /**
    * Render callback
    */
-  @Prop() renderer: Renderer<any, any, any>;
+  @Prop() renderer: Renderer<any>;
 
   /**
    * Current machine state
    */
-  @State() current: MachineState<any, any>;
+  @State() current: MachineState<any>;
 
   componentWillLoad() {
     const { machine, options } = this;

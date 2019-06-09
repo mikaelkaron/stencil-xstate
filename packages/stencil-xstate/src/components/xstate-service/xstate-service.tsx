@@ -10,19 +10,19 @@ export class XStateService {
   /**
    * Current machine state
    */
-  @State() current: MachineState<any, any>;
+  @State() current: MachineState<any>;
 
   /**
    * An XState service.
    */
-  @Prop() service!: Interpreter<any, any, any>;
+  @Prop() service!: Interpreter<any>;
 
   /**
    * Renderer callback
    */
-  @Prop() renderer?: Renderer<any, any, any>;
+  @Prop() renderer?: Renderer<any>;
 
-  private stateChange = (state: MachineState<any, any>) => {
+  private stateChange = (state: MachineState<any>) => {
     if (state.changed) {
       this.current = state;
     }
