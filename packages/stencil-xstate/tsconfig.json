@@ -1,12 +1,12 @@
 {
-  "extends": "../tsconfig.settings.json",
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "allowUnreachableCode": false,
+    "declaration": false,
     "experimentalDecorators": true,
     "lib": [
       "dom",
-      "es2017"
+      "es2015"
     ],
     "moduleResolution": "node",
     "module": "esnext",
@@ -17,12 +17,9 @@
     "jsxFactory": "h"
   },
   "include": [
-    "src",
-    "types/jsx.d.ts"
+    "src"
   ],
   "exclude": [
-    "node_modules",
-    "src/**/*.spec.ts*",
-    "src/**/*.e2e.ts*"
+    "node_modules"
   ]
 }

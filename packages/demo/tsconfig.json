@@ -1,8 +1,8 @@
 {
-  "extends": "../tsconfig.settings.json",
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "allowUnreachableCode": false,
+    "declaration": false,
     "experimentalDecorators": true,
     "lib": [
       "dom",
@@ -20,13 +20,6 @@
     "src"
   ],
   "exclude": [
-    "node_modules",
-    "src/**/*.spec.ts*",
-    "src/**/*.e2e.ts*"
-  ],
-  "references": [
-    {
-      "path": "../stencil-xstate"
-    }
+    "node_modules"
   ]
 }
