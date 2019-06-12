@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.8.0](https://github.com/mikaelkaron/stencil-xstate/compare/v0.7.3...v0.8.0) (2019-06-12)
+
+
+### Bug Fixes
+
+* ensure we only show leaf state ([fd81af3](https://github.com/mikaelkaron/stencil-xstate/commit/fd81af3))
+
+
+### Features
+
+* added slots ([8b32020](https://github.com/mikaelkaron/stencil-xstate/commit/8b32020))
+
+
+
 ### [0.7.3](https://github.com/mikaelkaron/stencil-xstate/compare/v0.7.2...v0.7.3) (2019-06-09)
 
 
