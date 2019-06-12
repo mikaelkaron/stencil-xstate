@@ -35,7 +35,7 @@ export class DemoMachine implements ComponentInterface {
         renderer={(current, send) => {
           return (
             <button onClick={() => send('NEXT')}>
-              {current.toStrings(current.value)}
+              {current.toStrings(current.value).pop()}
             </button>
           );
         }}
