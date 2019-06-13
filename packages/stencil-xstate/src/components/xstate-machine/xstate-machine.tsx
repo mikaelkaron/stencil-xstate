@@ -1,6 +1,6 @@
 import { Component, Prop, State, ComponentInterface } from '@stencil/core';
 import { interpret, StateMachine, Interpreter, EventObject } from 'xstate';
-import { Options, Renderer, MachineState } from '../xstate';
+import { MachineOptions, Renderer, MachineState } from '../xstate';
 
 @Component({
   tag: 'xstate-machine',
@@ -20,7 +20,7 @@ export class XStateMachine implements ComponentInterface {
   /**
    * Interpreter options that you can pass in
    */
-  @Prop() options?: Options = {
+  @Prop() options?: MachineOptions = {
     immediate: false
   };
 

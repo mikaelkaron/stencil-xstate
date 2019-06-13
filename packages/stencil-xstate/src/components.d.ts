@@ -14,7 +14,7 @@ import {
   StateMachine,
 } from 'xstate';
 import {
-  Options,
+  MachineOptions,
   Renderer,
 } from './components/xstate';
 
@@ -29,7 +29,7 @@ export namespace Components {
     /**
     * Interpreter options that you can pass in
     */
-    'options'?: Options;
+    'options'?: MachineOptions;
     /**
     * Render callback
     */
@@ -47,7 +47,7 @@ export namespace Components {
     /**
     * Interpreter options that you can pass in
     */
-    'options'?: Options;
+    'options'?: MachineOptions;
     /**
     * Render callback
     */

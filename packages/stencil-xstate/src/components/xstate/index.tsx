@@ -26,7 +26,7 @@ export type Renderer<
   service: Interpreter<TContext, TSchema, TEvent>
 ) => JSX.Element[] | JSX.Element;
 
-export interface Options extends Partial<InterpreterOptions> {
+export interface MachineOptions extends Partial<InterpreterOptions> {
   immediate?: boolean;
 }
 
@@ -36,7 +36,7 @@ export type MachineProps<
   TEvent extends EventObject = EventObject
 > = {
   machine: StateMachine<TContext, TSchema, TEvent>;
-  options?: Options;
+  options?: MachineOptions;
   renderer?: Renderer<TContext, TSchema, TEvent>;
 };
 
