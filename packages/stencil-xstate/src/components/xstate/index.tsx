@@ -6,7 +6,8 @@ import {
   Interpreter,
   InterpreterOptions
 } from 'xstate';
-import { FunctionalComponent } from '@stencil/core';
+import { h, FunctionalComponent } from '@stencil/core';
+import { VNode } from '@stencil/core/dist/declarations';
 
 export { State as MachineState };
 
@@ -24,7 +25,7 @@ export type Renderer<
   current: State<TContext>,
   send: Send<TContext, TSchema, TEvent>,
   service: Interpreter<TContext, TSchema, TEvent>
-) => JSX.Element[] | JSX.Element;
+) => Element[] | Element;
 
 export interface MachineOptions extends Partial<InterpreterOptions> {
   immediate?: boolean;
@@ -48,7 +49,7 @@ export const Machine: FunctionalComponent<
   TEvent extends EventObject = EventObject
 >(
   { machine, options, renderer }: MachineProps<TContext, TSchema, TEvent>,
-  children?: JSX.Element[]
+  children?: VNode[]
 ) => (
   <xstate-machine machine={machine} options={options} renderer={renderer}>
     {...children}
@@ -72,5 +73,5 @@ export const Service: FunctionalComponent<
   TEvent extends EventObject = EventObject
 >(
   { service }: ServiceProps<TContext, TSchema, TEvent>,
-  children?: JSX.Element[]
+  children?: VNode[]
 ) => <xstate-service service={service}>{...children}</xstate-service>;

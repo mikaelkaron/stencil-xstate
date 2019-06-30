@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
   <title>XState tools for Stencil</title>
-  <script src="https://cdn.jsdelivr.net/npm/xstate@4.6.0/dist/xstate.js"></script>
-  <script src="/build/xstate.js"></script>
-</head>
+  <script src="https://cdn.jsdelivr.net/npm/xstate@4.6/dist/xstate.js"></script>
+  <script type="module" src="./build/xstate.esm.js"></script>
+  <script nomodule src="./build/xstate.js"></script></head>
 <body>
 
   <xstate-machine />
@@ -30,13 +30,13 @@
     element.machine = machine;
     element.renderer = (current, send) => {
       return {
-        'vtag': 'button',
-        'vattrs': {
+        '$tag$': 'button',
+        '$attrs$': {
           onClick: () => send('TOGGLE')
         },
-        'vchildren': [
+        '$children$': [
           {
-            'vtext': current.value === 'inactive'
+            '$text$': current.value === 'inactive'
               ? 'Click to activate'
               : 'Active! Click to deactivate'
           }

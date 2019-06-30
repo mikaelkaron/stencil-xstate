@@ -1,4 +1,4 @@
-import { Component, ComponentInterface } from '@stencil/core';
+import { h, Component, ComponentInterface } from '@stencil/core';
 import { Machine } from 'xstate';
 import 'stencil-xstate';
 

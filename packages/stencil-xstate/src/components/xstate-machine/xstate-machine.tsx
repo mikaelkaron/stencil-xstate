@@ -1,4 +1,4 @@
-import { Component, Prop, State, ComponentInterface } from '@stencil/core';
+import { h, Component, Prop, State, ComponentInterface } from '@stencil/core';
 import { interpret, StateMachine, Interpreter, EventObject } from 'xstate';
 import { MachineOptions, Renderer, MachineState } from '../xstate';
 

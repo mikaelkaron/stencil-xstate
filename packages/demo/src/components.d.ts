@@ -5,25 +5,14 @@
  */
 
 
-import '@stencil/core';
-
-import 'stencil-xstate';
+import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 
 export namespace Components {
-
   interface DemoMachine {}
-  interface DemoMachineAttributes extends StencilHTMLAttributes {}
 }
 
 declare global {
-  interface StencilElementInterfaces {
-    'DemoMachine': Components.DemoMachine;
-  }
-
-  interface StencilIntrinsicElements {
-    'demo-machine': Components.DemoMachineAttributes;
-  }
 
 
   interface HTMLDemoMachineElement extends Components.DemoMachine, HTMLStencilElement {}
@@ -31,22 +20,26 @@ declare global {
     prototype: HTMLDemoMachineElement;
     new (): HTMLDemoMachineElement;
   };
-
   interface HTMLElementTagNameMap {
-    'demo-machine': HTMLDemoMachineElement
-  }
-
-  interface ElementTagNameMap {
     'demo-machine': HTMLDemoMachineElement;
   }
-
-
-  export namespace JSX {
-    export interface Element {}
-    export interface IntrinsicElements extends StencilIntrinsicElements {
-      [tagName: string]: any;
-    }
-  }
-  export interface HTMLAttributes extends StencilHTMLAttributes {}
-
 }
+
+declare namespace LocalJSX {
+  interface DemoMachine extends JSXBase.HTMLAttributes<HTMLDemoMachineElement> {}
+
+  interface IntrinsicElements {
+    'demo-machine': DemoMachine;
+  }
+}
+
+export { LocalJSX as JSX };
+
+
+declare module "@stencil/core" {
+  export namespace JSX {
+    interface IntrinsicElements extends LocalJSX.IntrinsicElements {}
+  }
+}
+
+

@@ -5,9 +5,7 @@
  */
 
 
-import '@stencil/core';
-
-
+import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 import {
   EventObject,
   Interpreter,
@@ -18,9 +16,7 @@ import {
   Renderer,
 } from './components/xstate';
 
-
 export namespace Components {
-
   interface XstateMachine {
     /**
     * An XState machine
@@ -39,7 +35,40 @@ export namespace Components {
     */
     'service': Interpreter<any>;
   }
-  interface XstateMachineAttributes extends StencilHTMLAttributes {
+  interface XstateService {
+    /**
+    * Renderer callback
+    */
+    'renderer'?: Renderer<any>;
+    /**
+    * An XState service.
+    */
+    'service': Interpreter<any>;
+  }
+}
+
+declare global {
+
+
+  interface HTMLXstateMachineElement extends Components.XstateMachine, HTMLStencilElement {}
+  var HTMLXstateMachineElement: {
+    prototype: HTMLXstateMachineElement;
+    new (): HTMLXstateMachineElement;
+  };
+
+  interface HTMLXstateServiceElement extends Components.XstateService, HTMLStencilElement {}
+  var HTMLXstateServiceElement: {
+    prototype: HTMLXstateServiceElement;
+    new (): HTMLXstateServiceElement;
+  };
+  interface HTMLElementTagNameMap {
+    'xstate-machine': HTMLXstateMachineElement;
+    'xstate-service': HTMLXstateServiceElement;
+  }
+}
+
+declare namespace LocalJSX {
+  interface XstateMachine extends JSXBase.HTMLAttributes<HTMLXstateMachineElement> {
     /**
     * An XState machine
     */
@@ -57,8 +86,7 @@ export namespace Components {
     */
     'service'?: Interpreter<any>;
   }
-
-  interface XstateService {
+  interface XstateService extends JSXBase.HTMLAttributes<HTMLXstateServiceElement> {
     /**
     * Renderer callback
     */
@@ -68,59 +96,20 @@ export namespace Components {
     */
     'service': Interpreter<any>;
   }
-  interface XstateServiceAttributes extends StencilHTMLAttributes {
-    /**
-    * Renderer callback
-    */
-    'renderer'?: Renderer<any>;
-    /**
-    * An XState service.
-    */
-    'service': Interpreter<any>;
+
+  interface IntrinsicElements {
+    'xstate-machine': XstateMachine;
+    'xstate-service': XstateService;
   }
 }
 
-declare global {
-  interface StencilElementInterfaces {
-    'XstateMachine': Components.XstateMachine;
-    'XstateService': Components.XstateService;
-  }
-
-  interface StencilIntrinsicElements {
-    'xstate-machine': Components.XstateMachineAttributes;
-    'xstate-service': Components.XstateServiceAttributes;
-  }
+export { LocalJSX as JSX };
 
 
-  interface HTMLXstateMachineElement extends Components.XstateMachine, HTMLStencilElement {}
-  var HTMLXstateMachineElement: {
-    prototype: HTMLXstateMachineElement;
-    new (): HTMLXstateMachineElement;
-  };
-
-  interface HTMLXstateServiceElement extends Components.XstateService, HTMLStencilElement {}
-  var HTMLXstateServiceElement: {
-    prototype: HTMLXstateServiceElement;
-    new (): HTMLXstateServiceElement;
-  };
-
-  interface HTMLElementTagNameMap {
-    'xstate-machine': HTMLXstateMachineElement
-    'xstate-service': HTMLXstateServiceElement
-  }
-
-  interface ElementTagNameMap {
-    'xstate-machine': HTMLXstateMachineElement;
-    'xstate-service': HTMLXstateServiceElement;
-  }
-
-
+declare module "@stencil/core" {
   export namespace JSX {
-    export interface Element {}
-    export interface IntrinsicElements extends StencilIntrinsicElements {
-      [tagName: string]: any;
-    }
+    interface IntrinsicElements extends LocalJSX.IntrinsicElements {}
   }
-  export interface HTMLAttributes extends StencilHTMLAttributes {}
-
 }
+
+
